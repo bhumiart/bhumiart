@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #fffcf0;
+  --color-primary-100: #fff9db;
+  --color-primary-200: #fff0b3;
+  --color-primary-300: #ffe48a;
+  --color-primary-400: #ffd462;
+  --color-primary-500: #ffc139;
+  --color-primary-600: #e6a710;
+  --color-primary-700: #bf860a;
+  --color-primary-800: #996807;
+  --color-primary-900: #734d05;
+
+  --color-accent-50: #fff0f5;
+  --color-accent-100: #ffe1ed;
+  --color-accent-200: #ffc2db;
+  --color-accent-300: #ffa3c9;
+  --color-accent-400: #ff85b7;
+  --color-accent-500: #ff66a5;
+  --color-accent-600: #d64582;
+  --color-accent-700: #ae2d64;
+  --color-accent-800: #861a4b;
+  --color-accent-900: #5e0b35;
+
+  --color-neutral-dark: #2d2d2d;
+}
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #fffcf0;
+  color: #2d2d2d;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.lippan-gradient {
+  background: linear-gradient(135deg, #fdf8f6 0%, #eaddd7 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
