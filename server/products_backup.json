@@ -1,0 +1,112 @@
+[
+  {
+    "name": "6X3 Feet Modern Stylized Face Relief Mural Wall Art",
+    "description": "A masterpiece of contemporary relief art, featuring a stylized face with intricate textures and a deep bronze finish.",
+    "price": 23000,
+    "originalPrice": 39000,
+    "category": "Relief Murals",
+    "image": "http://localhost:5001/uploads/product-1.jpeg",
+    "countInStock": 5,
+    "rating": 4.9,
+    "numReviews": 24
+  },
+  {
+    "name": "7X7 Feet Dancing European Lady 3D Relief Mural",
+    "description": "An elegant 3D relief mural capturing the fluid motion of a dancing lady, perfect for large feature walls.",
+    "price": 60000,
+    "originalPrice": 118999,
+    "category": "Relief Murals",
+    "image": "http://localhost:5001/uploads/product-2.jpeg",
+    "countInStock": 3,
+    "rating": 4.8,
+    "numReviews": 18
+  },
+  {
+    "name": "8X4 Feet Modern European Lady 3D Relief Mural / LED Backlight",
+    "description": "Sophisticated wall art featuring a modern European lady silhouette with integrated LED backlighting for a dramatic effect.",
+    "price": 40000,
+    "originalPrice": 78999,
+    "category": "Relief Murals",
+    "image": "http://localhost:5001/uploads/product-3.jpeg",
+    "countInStock": 7,
+    "rating": 5.0,
+    "numReviews": 12
+  },
+  {
+    "name": "8x4 Feet European Couple 3D Relief Mural / LED Backlight",
+    "description": "A romantic and powerful 3D relief mural depicting a couple, enhanced with warm LED lighting.",
+    "price": 40000,
+    "originalPrice": 78999,
+    "category": "Relief Murals",
+    "image": "http://localhost:5001/uploads/product-4.jpeg",
+    "countInStock": 4,
+    "rating": 4.7,
+    "numReviews": 30
+  },
+  {
+    "name": "Traditional Ganesha Relief Plate",
+    "description": "Handcrafted relief plate featuring Lord Ganesha, perfect for spiritual home decor.",
+    "price": 4500,
+    "originalPrice": 8000,
+    "category": "Heritage Replicas",
+    "image": "http://localhost:5001/uploads/product-5.jpeg",
+    "countInStock": 15,
+    "rating": 4.9,
+    "numReviews": 45
+  },
+  {
+    "name": "Royal Heritage Elephant Sculpture",
+    "description": "Intricately carved heritage elephant sculpture representing strength and wisdom in traditional style.",
+    "price": 12500,
+    "originalPrice": 18000,
+    "category": "Statues",
+    "image": "http://localhost:5001/uploads/product-6.jpeg",
+    "countInStock": 8,
+    "rating": 4.9,
+    "numReviews": 15
+  },
+  {
+    "name": "Abstract Golden Swirl Canvas",
+    "description": "A modern 3D abstract artwork with golden swirls on a textured background, adding luxury to any room.",
+    "price": 15000,
+    "originalPrice": 25000,
+    "category": "3D Abstract Art",
+    "image": "http://localhost:5001/uploads/product-7.jpeg",
+    "countInStock": 10,
+    "rating": 4.8,
+    "numReviews": 22
+  },
+  {
+    "name": "Floral Symphony Wall Accent",
+    "description": "Beautifully crafted floral wall accents that bring nature and elegance to your living space.",
+    "price": 5500,
+    "originalPrice": 9500,
+    "category": "Wall Accents",
+    "image": "http://localhost:5001/uploads/product-8.jpeg",
+    "countInStock": 20,
+    "rating": 4.7,
+    "numReviews": 35
+  },
+  {
+    "name": "Majestic Peacock Relief Mural",
+    "description": "A vibrant relief mural showcasing a majestic peacock with hand-painted details and mirror work.",
+    "price": 32000,
+    "originalPrice": 55000,
+    "category": "Relief Murals",
+    "image": "http://localhost:5001/uploads/product-9.jpeg",
+    "countInStock": 6,
+    "rating": 5.0,
+    "numReviews": 14
+  },
+  {
+    "name": "Vintage Heritage Mirror Frame",
+    "description": "A handcrafted mirror frame inspired by vintage Indian heritage architecture.",
+    "price": 18500,
+    "originalPrice": 32000,
+    "category": "Heritage Replicas",
+    "image": "http://localhost:5001/uploads/product-10.jpeg",
+    "countInStock": 12,
+    "rating": 4.9,
+    "numReviews": 28
+  }
+]

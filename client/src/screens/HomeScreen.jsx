@@ -19,7 +19,7 @@ const HomeScreen = ({ onAddToCart, onAddToWishlist }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5001/api/products');
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products`);
         setProducts(data);
         setLoading(false);
       } catch (err) {

@@ -22,12 +22,12 @@ const ProductDetailScreen = ({ onAddToCart, onAddToWishlist }) => {
     const fetchProduct = async () => {
       try {
         setLoading(true);
-        const { data } = await axios.get(`http://localhost:5001/api/products/${id}`);
+        const { data } = await axios.get(`$(import.meta.env.VITE_API_BASE_URL)/api/products/${id}`);
         setProduct(data);
         setSelectedImage(data.image);
 
         // Fetch related products from the same category
-        const { data: related } = await axios.get(`http://localhost:5001/api/products?category=${data.category}`);
+        const { data: related } = await axios.get(`$(import.meta.env.VITE_API_BASE_URL)/api/products?category=${data.category}`);
         setRelatedProducts(related.filter(p => p._id !== id).slice(0, 4));
 
         setLoading(false);
@@ -53,7 +53,7 @@ const ProductDetailScreen = ({ onAddToCart, onAddToWishlist }) => {
   const getImageUrl = (url) => {
     if (!url) return '';
     if (url.startsWith('http')) return url;
-    if (url.startsWith('/uploads')) return `http://localhost:5001${url}`;
+    if (url.startsWith('/uploads')) return `$(import.meta.env.VITE_API_BASE_URL)${url}`;
     return url;
   };
 
@@ -375,3 +375,4 @@ const ProductDetailScreen = ({ onAddToCart, onAddToWishlist }) => {
 };
 
 export default ProductDetailScreen;
+

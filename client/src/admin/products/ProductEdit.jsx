@@ -23,7 +23,7 @@ const ProductEdit = () => {
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState([]);
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -129,7 +129,7 @@ const ProductEdit = () => {
   const getImageUrl = (url) => {
     if (!url) return '';
     if (url.startsWith('http')) return url;
-    if (url.startsWith('/uploads')) return `http://localhost:5001${url}`;
+    if (url.startsWith('/uploads')) return `$(import.meta.env.VITE_API_BASE_URL)${url}`;
     return url;
   };
 
@@ -314,3 +314,4 @@ const ProductEdit = () => {
 };
 
 export default ProductEdit;
+

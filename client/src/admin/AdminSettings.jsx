@@ -13,7 +13,7 @@ const AdminSettings = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -172,3 +172,4 @@ const AdminSettings = () => {
 };
 
 export default AdminSettings;
+

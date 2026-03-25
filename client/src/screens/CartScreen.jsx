@@ -12,7 +12,7 @@ const CartScreen = ({ cart, onRemoveFromCart, onUpdateQty }) => {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return '';
     if (imagePath.startsWith('http')) return imagePath;
-    return `http://localhost:5001${imagePath}`;
+    return `$(import.meta.env.VITE_API_BASE_URL)${imagePath}`;
   };
 
   if (cart.length === 0) {
@@ -251,3 +251,4 @@ const CartScreen = ({ cart, onRemoveFromCart, onUpdateQty }) => {
 };
 
 export default CartScreen;
+

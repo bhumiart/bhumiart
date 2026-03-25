@@ -7,11 +7,10 @@ const ProductCard = ({ product, onAddToWishlist }) => {
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0;
 
-  const getImageUrl = (url) => {
-    if (!url) return '';
-    if (url.startsWith('http')) return url;
-    if (url.startsWith('/uploads')) return `http://localhost:5001${url}`;
-    return url;
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return '/images/logo/logo.jpeg';
+    if (imagePath.startsWith('http')) return imagePath;
+    return `${import.meta.env.VITE_API_BASE_URL}${imagePath}`;
   };
 
   return (

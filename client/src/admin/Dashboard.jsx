@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [error, setError] = useState(null);
   const { userInfo } = useAuth();
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -121,3 +121,4 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
