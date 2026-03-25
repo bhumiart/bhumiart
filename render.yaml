@@ -1,0 +1,28 @@
+services:
+  # Backend Service (Node.js/Express)
+  - type: web
+    name: bhumiart-server
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # Should be provided via Render Dashboard (MongoDB Atlas URI)
+      - key: JWT_SECRET
+        generateValue: true # Generate a random secret if not provided
+
+  # Frontend Service (Static Site)
+  - type: static
+    name: bhumiart-client
+    env: static
+    rootDir: client
+    buildCommand: npm install && npm run build
+    publishDir: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://bhumiart-server.onrender.com # Replace with your actual server URL after deployment
