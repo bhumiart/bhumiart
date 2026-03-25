@@ -8,7 +8,7 @@ const CollectionScreen = ({ onAddToWishlist }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [sortBy, setSortSortBy] = useState('featured');
+  const [sortBy, setSortBy] = useState('featured');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   
@@ -16,7 +16,7 @@ const CollectionScreen = ({ onAddToWishlist }) => {
   const queryParams = new URLSearchParams(location.search);
   const category = queryParams.get('category');
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -182,7 +182,7 @@ const CollectionScreen = ({ onAddToWishlist }) => {
             <div className="relative group w-full md:w-auto min-w-[220px]">
               <select 
                 value={sortBy}
-                onChange={(e) => setSortSortBy(e.target.value)}
+                onChange={(e) => setSortBy(e.target.value)}
                 className="w-full bg-white border border-primary-100 rounded-xl py-3.5 px-5 text-sm font-bold text-neutral-dark focus:outline-none focus:border-accent-400 appearance-none cursor-pointer pr-10 hover:border-primary-200 transition-colors"
               >
                 <option value="featured">Sort by: Featured</option>

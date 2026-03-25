@@ -13,7 +13,7 @@ const CategoryList = () => {
   const [editCategory, setEditCategory] = useState({ name: '', description: '', image: '' });
   const { userInfo } = useAuth();
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '';
 
   useEffect(() => {
     fetchCategories();
@@ -171,7 +171,7 @@ const CategoryList = () => {
               <button
                 type="button"
                 onClick={() => setIsAdding(false)}
-                className="px-8 py-4 bg-neutral-100 text-neutral- dark rounded-full font-black uppercase tracking-widest text-xs hover:bg-neutral-200 transition-all"
+                className="px-8 py-4 bg-neutral-100 text-neutral-dark rounded-full font-black uppercase tracking-widest text-xs hover:bg-neutral-200 transition-all"
               >
                 Cancel
               </button>

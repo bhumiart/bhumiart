@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, Package, Heart, MapPin, LogOut, ChevronRight, Settings, CreditCard, ShieldCheck, Bell, Save, Trash2, Plus, Loader2 } from 'lucide-react';
+import { User, Package, Heart, MapPin, LogOut, ChevronRight, Settings, CreditCard, ShieldCheck, Bell, Save, Trash2, Plus, Loader2, CheckCircle2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
@@ -308,7 +308,7 @@ const ProfileScreen = () => {
     isDefault: false
   });
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '';
 
   useEffect(() => {
     if (!userInfo) {

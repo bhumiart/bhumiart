@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null
   );
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || `${import.meta.env.VITE_API_BASE_URL}`;
 
   const login = async (email, password) => {
     const { data } = await axios.post(`${API_URL}/api/users/login`, { email, password });

@@ -12,7 +12,7 @@ const CartScreen = ({ cart, onRemoveFromCart, onUpdateQty }) => {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return '';
     if (imagePath.startsWith('http')) return imagePath;
-    return `$(import.meta.env.VITE_API_BASE_URL)${imagePath}`;
+    return `${import.meta.env.VITE_API_BASE_URL}${imagePath}`;
   };
 
   if (cart.length === 0) {

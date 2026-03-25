@@ -35,7 +35,7 @@ const CheckoutScreen = ({ cart, onClearCart }) => {
   const navigate = useNavigate();
   const { userInfo } = useAuth();
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '';
 
   useEffect(() => {
     if (userInfo) {
@@ -163,7 +163,7 @@ const CheckoutScreen = ({ cart, onClearCart }) => {
   const getImageUrl = (imagePath) => {
     if (!imagePath) return '';
     if (imagePath.startsWith('http')) return imagePath;
-    return `$(import.meta.env.VITE_API_BASE_URL)${imagePath}`;
+    return `${import.meta.env.VITE_API_BASE_URL}${imagePath}`;
   };
 
   const Stepper = () => (

@@ -19,7 +19,7 @@ const Header = ({ cartCount, wishlistCount }) => {
   const searchRef = useRef(null);
   const navigate = useNavigate();
 
-  const API_URL = import.meta.env.VITE_API_BASE_URL || '$(import.meta.env.VITE_API_BASE_URL)';
+  const API_URL = import.meta.env.VITE_API_BASE_URL || `${import.meta.env.VITE_API_BASE_URL}`;
 
   // Fetch categories and collections for navigation
   useEffect(() => {
@@ -67,7 +67,7 @@ const Header = ({ cartCount, wishlistCount }) => {
         setIsSearching(true);
         setShowDropdown(true);
         try {
-          const { data } = await axios.get(`$(import.meta.env.VITE_API_BASE_URL)/api/products?search=${searchQuery}`);
+          const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/products?search=${searchQuery}`);
           setSearchResults(data.slice(0, 5)); // Show top 5 results
         } catch (error) {
           console.error('Search error:', error);
@@ -86,7 +86,7 @@ const Header = ({ cartCount, wishlistCount }) => {
   const getImageUrl = (url) => {
     if (!url) return '';
     if (url.startsWith('http')) return url;
-    if (url.startsWith('/uploads')) return `$(import.meta.env.VITE_API_BASE_URL)${url}`;
+    if (url.startsWith('/uploads')) return `${import.meta.env.VITE_API_BASE_URL}${url}`;
     return url;
   };
 
