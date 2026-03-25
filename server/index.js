@@ -34,7 +34,11 @@ app.use('/api/dashboard', dashboardRoutes);
 // Image Upload API
 app.post('/api/upload', upload.single('image'), (req, res) => {
   if (req.file) {
-    const baseUrl = `http://localhost:${PORT}`;
+    // Determine the base URL dynamically
+    const protocol = req.protocol;
+    const host = req.get('host');
+    const baseUrl = `${protocol}://${host}`;
+    
     res.json({
       message: 'Image uploaded successfully',
       image: `${baseUrl}/uploads/${req.file.filename}`
