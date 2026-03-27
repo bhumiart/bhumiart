@@ -15,7 +15,7 @@ import {
   RotateCcw,
   CreditCard
 } from 'lucide-react';
-import logo from '../../../images/logo/logo.jpeg';
+import logo from '../../../images/logo/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCart, User, Search, Heart, Menu, X, Settings, Loader2, ArrowRight, ChevronRight, Sparkles } from 'lucide-react';
 import axios from 'axios';
-import logo from '../../../images/logo/logo.jpeg';
+import logo from '../../../images/logo/logo.png';
 import { useAuth } from '../../context/AuthContext';
 
 const Header = ({ cartCount, wishlistCount }) => {

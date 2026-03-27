@@ -8,7 +8,7 @@ const ProductCard = ({ product, onAddToWishlist }) => {
     : 0;
 
   const getImageUrl = (imagePath) => {
-    if (!imagePath) return '/images/logo/logo.jpeg';
+    if (!imagePath) return '/images/logo/logo.png';
     if (imagePath.startsWith('http')) return imagePath;
     return `${import.meta.env.VITE_API_BASE_URL}${imagePath}`;
   };
