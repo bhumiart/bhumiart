@@ -7,7 +7,8 @@ import {
   Settings, 
   LogOut, 
   Home,
-  Palette
+  Palette,
+  ImageIcon
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
@@ -41,6 +42,11 @@ const AdminSidebar = () => {
       title: 'Collections', 
       icon: <LayoutDashboard size={20} />, 
       path: '/admin/collections' 
+    },
+    { 
+      title: 'Hero Banners', 
+      icon: <ImageIcon size={20} />, 
+      path: '/admin/hero-banners' 
     },
     { 
       title: 'Orders', 

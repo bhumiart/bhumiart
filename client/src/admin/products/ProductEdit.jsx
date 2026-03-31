@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Save, Sparkles, Image as ImageIcon, IndianRupee, Layers, Package, FileText, Type } from 'lucide-react';
+import { ArrowLeft, Save, Sparkles, Image as ImageIcon, IndianRupee, Layers, Package, FileText, Type, X } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
 const ProductEdit = () => {
@@ -14,12 +14,14 @@ const ProductEdit = () => {
   const [price, setPrice] = useState(0);
   const [originalPrice, setOriginalPrice] = useState(0);
   const [image, setImage] = useState('');
+  const [images, setImages] = useState([]);
   const [category, setCategory] = useState('Relief Murals');
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState('');
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadingMultiple, setUploadingMultiple] = useState(false);
   const [error, setError] = useState(null);
   const [categories, setCategories] = useState([]);
 
@@ -48,6 +50,7 @@ const ProductEdit = () => {
           setPrice(data.price);
           setOriginalPrice(data.originalPrice);
           setImage(data.image);
+          setImages(data.images || []);
           setCategory(data.category);
           setCountInStock(data.countInStock);
           setDescription(data.description);
@@ -86,6 +89,41 @@ const ProductEdit = () => {
     }
   };
 
+  const uploadMultipleFilesHandler = async (e) => {
+    const files = Array.from(e.target.files);
+    const formData = new FormData();
+    
+    setUploadingMultiple(true);
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      const uploadedImages = [];
+      for (const file of files) {
+        const singleFormData = new FormData();
+        singleFormData.append('image', file);
+        const { data } = await axios.post(`${API_URL}/api/upload`, singleFormData, config);
+        uploadedImages.push(data.image);
+      }
+
+      setImages(prev => [...prev, ...uploadedImages]);
+      setUploadingMultiple(false);
+    } catch (error) {
+      console.error(error);
+      setError('Multiple file upload failed');
+      setUploadingMultiple(false);
+    }
+  };
+
+  const removeImageHandler = (imgToRemove) => {
+    setImages(images.filter(img => img !== imgToRemove));
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -95,6 +133,7 @@ const ProductEdit = () => {
         price,
         originalPrice,
         image,
+        images,
         category,
         countInStock,
         description,
@@ -274,6 +313,51 @@ const ProductEdit = () => {
                 {image && (
                   <div className="mt-4 w-32 h-32 rounded-2xl overflow-hidden border border-primary-100 bg-white shadow-lg">
                     <img src={getImageUrl(image)} alt="Preview" className="w-full h-full object-cover" />
+                  </div>
+                )}
+              </div>
+
+              {/* Multiple Images */}
+              <div className="space-y-2">
+                <label className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-dark/40 flex items-center ml-4">
+                  <ImageIcon size={12} className="mr-2" /> Additional Masterpiece Images
+                </label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="relative group">
+                    <input
+                      type="file"
+                      id="multiple-images-file"
+                      className="hidden"
+                      multiple
+                      onChange={uploadMultipleFilesHandler}
+                    />
+                    <label 
+                      htmlFor="multiple-images-file"
+                      className="w-full bg-accent-600/5 border-2 border-dashed border-accent-600/20 rounded-2xl py-4 px-6 flex items-center justify-center cursor-pointer hover:bg-accent-600/10 transition-all font-bold text-accent-600 text-sm"
+                    >
+                      {uploadingMultiple ? (
+                        <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-accent-600 mr-3"></div>
+                      ) : (
+                        <ImageIcon size={18} className="mr-2" />
+                      )}
+                      {uploadingMultiple ? 'Uploading...' : 'Upload More Images'}
+                    </label>
+                  </div>
+                </div>
+                {images && images.length > 0 && (
+                  <div className="mt-6 flex flex-wrap gap-4">
+                    {images.map((img, index) => (
+                      <div key={index} className="relative group w-24 h-24 rounded-xl overflow-hidden border border-primary-100 bg-white shadow-md">
+                        <img src={getImageUrl(img)} alt={`Preview ${index}`} className="w-full h-full object-cover" />
+                        <button
+                          type="button"
+                          onClick={() => removeImageHandler(img)}
+                          className="absolute top-1 right-1 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          <X size={12} />
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>

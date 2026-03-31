@@ -59,17 +59,17 @@ const Footer = () => {
                 <div className="bg-white p-2 rounded-2xl shadow-xl shadow-primary-900/5 group-hover:scale-105 transition-transform duration-500 border border-primary-50">
                   <img src={logo} alt="Varnika Logo" className="h-10 md:h-12 w-auto object-contain" />
                 </div>
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   <span className="text-xl md:text-2xl font-black text-primary-950 tracking-tighter uppercase italic leading-none">
                     Varnika<span className="text-primary-600">.</span>
                   </span>
                   <span className="text-[10px] font-bold text-primary-600/60 uppercase tracking-[0.3em] mt-1">Lippan Art</span>
-                </div>
+                </div> */}
               </div>
             </Link>
             
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm font-medium italic">
-              Preserving the ancient craft of Kutch through contemporary Lippan Art. Every piece is handcrafted with precision, soul, and centuries of tradition by Varnika.
+              Preserving the ancient craft of Kutch through contemporary Lippan Art. Every piece is handcrafted with precision, soul, and centuries of tradition by BhumiArt.
             </p>
 
             <div className="space-y-4 pt-4">
@@ -79,7 +79,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-black uppercase tracking-widest text-primary-400">Workshop</span>
-                  <p className="text-xs font-bold text-slate-700 leading-tight">E-804 Malti Luxuria City, Sector 6, Bokaro Steel City, JH - 827006</p>
+                  <p className="text-xs font-bold text-slate-700 leading-tight">Indirapuram, Ghaziabad,  Nyay khand 2, Uttar Pradesh, India</p>
                 </div>
               </div>
 
@@ -89,7 +89,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-black uppercase tracking-widest text-primary-400">Email Us</span>
-                  <p className="text-xs font-bold text-slate-700">hello@varnika.com</p>
+                  <p className="text-xs font-bold text-slate-700">bhumilippanart@gmail.com</p>
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-[10px] font-black uppercase tracking-widest text-primary-400">Call Us</span>
-                  <p className="text-xs font-bold text-slate-700">+91 87577 35511</p>
+                  <p className="text-xs font-bold text-slate-700">+91 7065039968</p>
                 </div>
               </div>
             </div>
@@ -150,9 +150,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-primary-100 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary-900/40 text-center md:text-left">
+        <div className="pt-0 border-t border-primary-100 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary-900/40 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2">
-            <span>© {currentYear} Varnika Lippan Art Masterpieces</span>
+            <span>© {currentYear} BhumiArt Lippan Art Masterpieces</span>
             <span className="hidden md:block w-1 h-1 bg-primary-200 rounded-full" />
             <span className="text-primary-400 italic">Crafted with Pride in India</span>
           </div>

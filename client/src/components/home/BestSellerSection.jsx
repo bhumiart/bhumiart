@@ -11,7 +11,7 @@ import 'swiper/css/navigation';
 
 const BestSellerSection = ({ products, onAddToCart, onAddToWishlist }) => {
   return (
-    <section className="py-16 md:py-12 bg-white overflow-hidden ">
+    <section className="py-8 md:py-12 bg-white overflow-hidden ">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 md:mb-14 gap-4">
@@ -37,6 +37,7 @@ const BestSellerSection = ({ products, onAddToCart, onAddToWishlist }) => {
             }}
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             breakpoints={{
+              340: { slidesPerView: 2 },
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
               1280: { slidesPerView: 4 },

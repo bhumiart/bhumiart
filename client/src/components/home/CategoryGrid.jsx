@@ -36,7 +36,7 @@ const CategoryGrid = () => {
     <section className="py-12 md:py-16 bg-primary-50 overflow-hidden relative group">
       <div className="container mx-auto px-4 relative">
         <div className="flex items-center justify-between mb-10">
-          <h2 className="text-2xl md:text-3xl font-black text-neutral-dark tracking-tighter italic uppercase">Shop by Category</h2>
+          <h2 className="text-sm md:text-3xl font-black text-neutral-dark tracking-tighter italic uppercase">Shop by Category</h2>
           <div className="flex items-center space-x-4">
             <Link to="/shop" className="text-sm font-bold text-accent-700 hover:text-accent-900 transition-colors uppercase tracking-widest border-b-2 border-accent-100 pb-1 mr-4">View All</Link>
             

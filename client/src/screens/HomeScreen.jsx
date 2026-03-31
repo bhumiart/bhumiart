@@ -63,7 +63,7 @@ const HomeScreen = ({ onAddToCart, onAddToWishlist }) => {
       <ArtDecorCollection />
 
       {/* Banner Section */}
-      <section className="container mx-auto px-4 py-12">
+      <section className="container mx-auto px-4 py-12 hidden">
         <div className="bg-[#5d0e31] rounded-[3rem] p-10 md:p-20 lg:p-12 relative overflow-hidden group shadow-2xl flex flex-col lg:flex-row items-center gap-12 lg:gap-24">
           <div className="relative z-10 max-w-xl space-y-8">
              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[0.9] uppercase tracking-tighter italic">

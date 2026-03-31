@@ -19,11 +19,11 @@ const SignatureArtworks = ({ products, onAddToWishlist }) => {
   }, [products]);
 
   return (
-    <section className="py-16 md:py-8 bg-[#fffcf0]/30 overflow-hidden">
+    <section className="py-8 md:py-8 bg-[#fffcf0]/30 overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="flex flex-row items-center justify-between mb-10 md:mb-14">
-          <h2 className="text-2xl md:text-3xl font-bold text-neutral-dark tracking-tight uppercase italic">Signature Artworks</h2>
+          <h2 className="text-sm md:text-3xl font-bold text-neutral-dark tracking-tight uppercase italic">Signature Artworks</h2>
           <Link 
             to="/shop" 
             className="px-6 py-2 bg-[#222] text-white rounded-full text-xs font-bold hover:bg-black transition-all shadow-md uppercase tracking-wide text-center"
@@ -45,6 +45,7 @@ const SignatureArtworks = ({ products, onAddToWishlist }) => {
             }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             breakpoints={{
+               340: { slidesPerView: 2 },
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
               1280: { slidesPerView: 4 },

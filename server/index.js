@@ -10,6 +10,7 @@ const categoryRoutes = require('./routes/categoryRoutes');
 const collectionRoutes = require('./routes/collectionRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const heroBannerRoutes = require('./routes/heroBannerRoutes');
 const upload = require('./routes/uploadRoutes');
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/collections', collectionRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/hero-banners', heroBannerRoutes);
 
 // Image Upload API
 app.post('/api/upload', upload.single('image'), (req, res) => {

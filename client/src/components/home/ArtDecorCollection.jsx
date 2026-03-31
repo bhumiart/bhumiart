@@ -43,13 +43,13 @@ const ArtDecorCollection = () => {
   if (categories.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
+    <section className="py-8 md:py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-8 lg:gap-10">
           
           {/* Main Text Card */}
           <div className="bg-[#fdf8ed] rounded-2xl p-6 md:p-8 flex flex-col justify-center items-center text-center shadow-sm aspect-square border border-[#f0e6d2] group hover:border-accent-200 transition-all duration-500">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-neutral-dark mb-4 leading-tight tracking-tighter uppercase italic group-hover:scale-105 transition-transform duration-500">
+            <h2 className="text-lg md:text-2xl lg:text-2xl font-black text-neutral-dark mb-4 leading-tight tracking-tighter uppercase italic group-hover:scale-105 transition-transform duration-500">
               Art & Decor <br className="hidden md:block" /> Collection
             </h2>
             <div className="w-12 h-0.5 bg-accent-400 mb-6 group-hover:w-20 transition-all duration-500"></div>

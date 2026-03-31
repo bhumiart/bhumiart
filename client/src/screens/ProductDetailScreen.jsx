@@ -90,6 +90,15 @@ const ProductDetailScreen = ({ onAddToCart, onAddToWishlist }) => {
                   >
                     <img src={getImageUrl(product.image)} className="w-full h-full object-cover" alt="" />
                   </div>
+                  {product.images && product.images.map((img, idx) => (
+                    <div 
+                      key={idx}
+                      className={`aspect-square rounded-2xl overflow-hidden border-2 cursor-pointer transition-all hover:scale-105 ${selectedImage === img ? 'border-accent-600 shadow-lg' : 'border-primary-50'}`}
+                      onClick={() => setSelectedImage(img)}
+                    >
+                      <img src={getImageUrl(img)} className="w-full h-full object-cover" alt="" />
+                    </div>
+                  ))}
                 </div>
 
                 {/* Main Image Container */}
@@ -121,6 +130,15 @@ const ProductDetailScreen = ({ onAddToCart, onAddToWishlist }) => {
                   >
                     <img src={getImageUrl(product.image)} className="w-full h-full object-cover" alt="" />
                   </div>
+                  {product.images && product.images.map((img, idx) => (
+                    <div 
+                      key={idx}
+                      className={`w-16 h-16 flex-shrink-0 rounded-xl overflow-hidden border-2 transition-all ${selectedImage === img ? 'border-accent-600 scale-95 shadow-lg' : 'border-primary-100'}`}
+                      onClick={() => setSelectedImage(img)}
+                    >
+                      <img src={getImageUrl(img)} className="w-full h-full object-cover" alt="" />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -314,7 +332,7 @@ const ProductDetailScreen = ({ onAddToCart, onAddToWishlist }) => {
           </section>
 
           {/* Product Collection Gallery Banner */}
-          <section className="mt-12 px-4 md:px-0">
+          <section className="mt-12 px-4 md:px-0 hidden">
             <div className="bg-[#5d0e31] rounded-[3rem] p-12 lg:p-12 relative overflow-hidden group shadow-2xl flex flex-col lg:flex-row items-center gap-16">
               <div className="relative z-10 max-w-xl space-y-10">
                 <h2 className="text-4xl md:text-7xl font-black text-white leading-[0.9] uppercase tracking-tighter italic">

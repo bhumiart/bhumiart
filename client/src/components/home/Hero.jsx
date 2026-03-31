@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation, EffectFade } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -17,21 +18,46 @@ const getImageUrl = (name) => {
 const Hero = () => {
   const [prevEl, setPrevEl] = useState(null);
   const [nextEl, setNextEl] = useState(null);
-
-  const slides = [
+  const [slides, setSlides] = useState([
     { image: getImageUrl('banner-1.jpeg') },
     { image: getImageUrl('banner-2.jpeg') },
     { image: getImageUrl('banner-3.jpeg') },
     { image: getImageUrl('banner-4.jpeg') }
-  ];
+  ]);
+  const [loading, setLoading] = useState(true);
+
+  const API_URL = import.meta.env.VITE_API_BASE_URL || '';
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const { data } = await axios.get(`${API_URL}/api/hero-banners`);
+        if (data && data.length > 0) {
+          setSlides(data);
+        }
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching hero banners:', err);
+        setLoading(false);
+      }
+    };
+    fetchBanners();
+  }, []);
+
+  if (loading) return (
+    <div className="w-full h-[30vh] sm:h-[60vh] md:h-[80vh] bg-neutral-100 animate-pulse flex items-center justify-center">
+      <div className="text-neutral-400 font-bold uppercase tracking-widest italic">Loading...</div>
+    </div>
+  );
 
   return (
     <section className="relative w-full h-[30vh] sm:h-[60vh] md:h-[80vh] overflow-hidden group">
       <Swiper
+        key={slides.length} // Force re-render when slides change
         spaceBetween={0}
         effect={'fade'}
         centeredSlides={true}
-        loop={true}
+        loop={slides.length > 1}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
@@ -50,14 +76,21 @@ const Hero = () => {
         className="w-full h-full"
       >
         {slides.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
+          <SwiperSlide key={slide._id || index}>
+            <div className="relative w-full h-full cursor-pointer" onClick={() => slide.link && (window.location.href = slide.link)}>
               {/* Background Image - Zoom removed */}
               <img
                 src={slide.image}
-                alt={`Banner ${index + 1}`}
+                alt={slide.title || `Banner ${index + 1}`}
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              {/* Content Overlay if Title/Subtitle exists */}
+              {(slide.title || slide.subtitle) && (
+                <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center text-white p-4">
+                  {slide.title && <h2 className="text-2xl sm:text-4xl md:text-6xl font-black uppercase italic tracking-tighter mb-2 drop-shadow-lg">{slide.title}</h2>}
+                  {slide.subtitle && <p className="text-sm sm:text-lg md:text-xl font-medium tracking-widest uppercase drop-shadow-md">{slide.subtitle}</p>}
+                </div>
+              )}
             </div>
           </SwiperSlide>
         ))}

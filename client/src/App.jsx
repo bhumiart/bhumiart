@@ -22,6 +22,7 @@ import Dashboard from './admin/Dashboard';
 import CategoryList from './admin/categories/CategoryList';
 import CollectionList from './admin/collections/CollectionList';
 import OrderList from './admin/orders/OrderList';
+import HeroBannerManager from './admin/HeroBannerManager';
 import AdminSettings from './admin/AdminSettings';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -112,6 +113,7 @@ function App() {
               <Route path="products" element={<ProductList />} />
               <Route path="categories" element={<CategoryList />} />
               <Route path="collections" element={<CollectionList />} />
+              <Route path="hero-banners" element={<HeroBannerManager />} />
               <Route path="orders" element={<OrderList />} />
               <Route path="settings" element={<AdminSettings />} />
               <Route path="product/create" element={<ProductEdit />} />

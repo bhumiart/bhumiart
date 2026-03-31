@@ -383,14 +383,14 @@ const Header = ({ cartCount, wishlistCount }) => {
           <div className="flex flex-col h-full">
             {/* Mobile Menu Header */}
             <div className="flex items-center justify-between p-6 border-b border-primary-50">
-              <span className="text-xl font-black text-primary-950 uppercase italic tracking-tighter">Varnika<span className="text-primary-600">.</span></span>
+              <span className="text-xl font-black text-primary-950 uppercase italic tracking-tighter">BhumiArt<span className="text-primary-600">.</span></span>
               <button onClick={() => setIsMenuOpen(false)} className="p-2 text-neutral-dark hover:bg-primary-50 rounded-full transition-all">
                 <X size={24} />
               </button>
             </div>
 
             {/* Mobile Menu Links */}
-            <div className="flex-grow py-8 px-6 space-y-6 overflow-y-auto">
+            <div className="flex-grow py-8 px-6 space-y-3 overflow-y-auto">
               {[
                 { name: 'Home', path: '/' },
                  { name: 'Best Sellers', path: '/shop' },
@@ -406,7 +406,7 @@ const Header = ({ cartCount, wishlistCount }) => {
                 <Link 
                   key={i} 
                   to={link.path} 
-                  className="flex items-center justify-between text-base font-black uppercase tracking-[0.2em] text-slate-800 hover:text-primary-600 transition-colors group"
+                  className="flex items-center justify-between font-semibold uppercase tracking-[0.01em] text-slate-800 hover:text-primary-600 transition-colors group"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span>{link.name}</span>
@@ -420,7 +420,7 @@ const Header = ({ cartCount, wishlistCount }) => {
 
             {/* Mobile Menu Footer */}
             <div className="p-8 border-t border-primary-50 bg-[#fffcf0]/50 space-y-4">
-              <p className="text-[10px] font-black uppercase tracking-widest text-primary-400">Masterpieces of Gujarat</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-primary-400">Masterpieces of Uttar Pradesh</p>
               <div className="flex space-x-4">
                 <div className="w-8 h-8 rounded-lg bg-white border border-primary-100 flex items-center justify-center text-primary-600 shadow-sm"><Heart size={16} /></div>
                 <div className="w-8 h-8 rounded-lg bg-white border border-primary-100 flex items-center justify-center text-primary-600 shadow-sm"><User size={16} /></div>
