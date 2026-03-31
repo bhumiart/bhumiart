@@ -9,7 +9,7 @@ import BestSellerSection from '../components/home/BestSellerSection';
 import SignatureArtworks from '../components/home/SignatureArtworks';
 import ArtDecorCollection from '../components/home/ArtDecorCollection';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import brand from './../../images/brand/varnika.png';
+import brand from './../../images/logo/logo.png';
 
 const HomeScreen = ({ onAddToCart, onAddToWishlist }) => {
   const [products, setProducts] = useState([]);

@@ -475,7 +475,7 @@ const ProfileScreen = () => {
                 </div>
                 <div>
                   <h2 className="text-xl font-black uppercase italic tracking-tighter">{userInfo.name}</h2>
-                  <p className="text-white/40 text-[10px] font-black uppercase tracking-widest mt-1 italic">Varnika Member</p>
+                  <p className="text-white/40 text-[10px] font-black uppercase tracking-widest mt-1 italic">logo.png Member</p>
                 </div>
               </div>
             </div>

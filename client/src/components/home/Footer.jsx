@@ -45,23 +45,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#fffcf0] text-slate-800 pt-16 md:pt-24 pb-8 md:pb-12 border-t border-primary-100 relative overflow-hidden">
+    <footer className="bg-[#fffcf0] text-slate-800 pt-16 md:pt-12 pb-8 md:pb-8 border-t border-primary-100 relative overflow-hidden">
       {/* Subtle decorative background element */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-600/5 rounded-full blur-[120px] -translate-y-1/2" />
       
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-16 md:mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-16 mb-12 md:mb-8">
           
           {/* Brand & Mission */}
           <div className="lg:col-span-4 space-y-6 md:space-y-8">
             <Link to="/" className="inline-block group">
               <div className="flex items-center space-x-4">
                 <div className="bg-white p-2 rounded-2xl shadow-xl shadow-primary-900/5 group-hover:scale-105 transition-transform duration-500 border border-primary-50">
-                  <img src={logo} alt="Varnika Logo" className="h-10 md:h-12 w-auto object-contain" />
+                  <img src={logo} alt="logo.png Logo" className="h-10 md:h-12 w-auto object-contain" />
                 </div>
                 {/* <div className="flex flex-col">
                   <span className="text-xl md:text-2xl font-black text-primary-950 tracking-tighter uppercase italic leading-none">
-                    Varnika<span className="text-primary-600">.</span>
+                    logo.png<span className="text-primary-600">.</span>
                   </span>
                   <span className="text-[10px] font-bold text-primary-600/60 uppercase tracking-[0.3em] mt-1">Lippan Art</span>
                 </div> */}
@@ -150,7 +150,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-0 border-t border-primary-100 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary-900/40 text-center md:text-left">
+        <div className="pt-4 border-t border-primary-200 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary-900/40 text-center md:text-left">
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2">
             <span>© {currentYear} BhumiArt Lippan Art Masterpieces</span>
             <span className="hidden md:block w-1 h-1 bg-primary-200 rounded-full" />

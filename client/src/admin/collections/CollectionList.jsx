@@ -6,6 +6,7 @@ import { useAuth } from '../../context/AuthContext';
 const CollectionList = () => {
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -28,6 +29,35 @@ const CollectionList = () => {
     } catch (err) {
       setError(err.response?.data?.message || err.message);
       setLoading(false);
+    }
+  };
+
+  const uploadFileHandler = async (e, isEditing = false) => {
+    const file = e.target.files[0];
+    const formData = new FormData();
+    formData.append('image', file);
+    setUploading(true);
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      };
+
+      const { data } = await axios.post(`${API_URL}/api/upload`, formData, config);
+
+      if (isEditing) {
+        setEditCollection({ ...editCollection, image: data.image });
+      } else {
+        setNewCollection({ ...newCollection, image: data.image });
+      }
+      setUploading(false);
+    } catch (error) {
+      console.error(error);
+      alert('File upload failed');
+      setUploading(false);
     }
   };
 
@@ -143,16 +173,41 @@ const CollectionList = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-dark/40 flex items-center ml-4">
-                  Image URL
+                  Collection Image
                 </label>
-                <input
-                  type="text"
-                  placeholder="https://example.com/image.jpg"
-                  className="w-full bg-white border border-primary-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-accent-400 font-bold text-neutral-dark transition-all shadow-sm"
-                  value={newCollection.image}
-                  onChange={(e) => setNewCollection({ ...newCollection, image: e.target.value })}
-                  required
-                />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    placeholder="Image URL"
+                    className="w-full bg-white border border-primary-100 rounded-2xl py-4 px-6 focus:outline-none focus:border-accent-400 font-bold text-neutral-dark transition-all shadow-sm"
+                    value={newCollection.image}
+                    onChange={(e) => setNewCollection({ ...newCollection, image: e.target.value })}
+                  />
+                  <div className="relative group">
+                    <input
+                      type="file"
+                      id="collection-image-file"
+                      className="hidden"
+                      onChange={(e) => uploadFileHandler(e)}
+                    />
+                    <label 
+                      htmlFor="collection-image-file"
+                      className="w-full bg-accent-600/5 border-2 border-dashed border-accent-600/20 rounded-2xl py-4 px-6 flex items-center justify-center cursor-pointer hover:bg-accent-600/10 transition-all font-bold text-accent-600 text-sm h-full"
+                    >
+                      {uploading ? (
+                        <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-accent-600 mr-3"></div>
+                      ) : (
+                        <ImageIcon size={18} className="mr-2" />
+                      )}
+                      {uploading ? 'Uploading...' : 'Upload Image'}
+                    </label>
+                  </div>
+                </div>
+                {newCollection.image && (
+                  <div className="mt-4 w-32 h-20 rounded-2xl overflow-hidden border border-primary-100 bg-white shadow-lg">
+                    <img src={newCollection.image} alt="Preview" className="w-full h-full object-cover" />
+                  </div>
+                )}
               </div>
             </div>
             <div className="space-y-2">
@@ -207,13 +262,29 @@ const CollectionList = () => {
                           className="w-full bg-primary-50 border border-primary-100 rounded-xl py-2 px-4 focus:outline-none focus:border-accent-400 font-bold text-neutral-dark"
                           placeholder="Title"
                         />
-                        <input
-                          type="text"
-                          value={editCollection.image}
-                          onChange={(e) => setEditCollection({ ...editCollection, image: e.target.value })}
-                          className="w-full bg-primary-50 border border-primary-100 rounded-xl py-2 px-4 focus:outline-none focus:border-accent-400 font-bold text-neutral-dark"
-                          placeholder="Image URL"
-                        />
+                        <div className="flex flex-col md:flex-row gap-4">
+                          <input
+                            type="text"
+                            value={editCollection.image}
+                            onChange={(e) => setEditCollection({ ...editCollection, image: e.target.value })}
+                            className="flex-grow bg-primary-50 border border-primary-100 rounded-xl py-2 px-4 focus:outline-none focus:border-accent-400 font-bold text-neutral-dark"
+                            placeholder="Image URL"
+                          />
+                          <div className="relative">
+                            <input
+                              type="file"
+                              id={`edit-collection-image-${collection._id}`}
+                              className="hidden"
+                              onChange={(e) => uploadFileHandler(e, true)}
+                            />
+                            <label 
+                              htmlFor={`edit-collection-image-${collection._id}`}
+                              className="bg-accent-600/5 border border-dashed border-accent-600/20 rounded-xl py-2 px-4 flex items-center justify-center cursor-pointer hover:bg-accent-600/10 transition-all font-bold text-accent-600 text-xs whitespace-nowrap h-full"
+                            >
+                              {uploading ? '...' : 'Upload'}
+                            </label>
+                          </div>
+                        </div>
                         <textarea
                           value={editCollection.description}
                           onChange={(e) => setEditCollection({ ...editCollection, description: e.target.value })}

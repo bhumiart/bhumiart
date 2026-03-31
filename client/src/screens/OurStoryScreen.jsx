@@ -27,7 +27,7 @@ const OurStoryScreen = () => {
               Crafting <br /> <span className="text-accent-600">Culture</span> <br /> For Your Home
             </h2>
             <p className="text-lg text-neutral-dark/60 font-medium leading-relaxed italic">
-              Lippan art, also known as Mud and Mirror Work, is a traditional mural craft of the Kutchi people. At Varnika, we empower local artisans and keep this heritage alive by creating masterpieces that fit perfectly in contemporary homes.
+              Lippan art, also known as Mud and Mirror Work, is a traditional mural craft of the Kutchi people. At logo.png, we empower local artisans and keep this heritage alive by creating masterpieces that fit perfectly in contemporary homes.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6">
               {[
@@ -62,7 +62,7 @@ const OurStoryScreen = () => {
       <section className="bg-neutral-dark py-24">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter">Why Choose <span className="text-accent-600">Varnika</span></h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white uppercase italic tracking-tighter">Why Choose <span className="text-accent-600">logo.png</span></h2>
             <p className="text-white/40 text-sm font-bold uppercase tracking-widest">Our core values define every piece we create</p>
           </div>
 
